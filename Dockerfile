@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')"
 
 # install dependencies of the SYVisualization app
-RUN R -e "install.packages(c("shiny","shinythemes","foreign","data.table","leaflet","pacman"), repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages(c('shiny','shinythemes','ggplot2','ggthemes','plyr','zoo','ggmap','foreign','data.table','leaflet','pacman'), repos='https://cloud.r-project.org/')"
 
 # copy the app to the image
 RUN mkdir /root/visualizer
