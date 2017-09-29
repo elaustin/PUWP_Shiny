@@ -55,7 +55,7 @@ read.PUWP <- function(file, timezone="GMT", filenameval)
   }
   colnames(result) = colnames.val
   result[,GMTdatetime :=
-           as.POSIXct(GMT, '%m/%d/%Y %H:%M:%S', tz="GMT" )]
+           as.POSIXct(GMT, '%m/%d/%Y %H:%M', tz="GMT" )]
   #result$GMT <- NULL
   result$nul <- NULL
   result[, localdatetime :=

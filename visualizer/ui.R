@@ -30,6 +30,7 @@ fluidPage(
                 multiple = TRUE,
                 accept = c(".csv")),
       "Use Ctrl to select mutliple files.",
+      downloadButton("downloadData", "Download"),
       tags$hr(),
       sliderInput("rowsn", "Select number of rows to display",min=1,max=50,step=10, value=10)
       
@@ -77,7 +78,12 @@ tabPanel(strong("Data Visualizer"),
                 sidebarPanel(
                   
                   dateRangeInput("Dates",
-                              "Date Range:", min="2017-07-01")
+                              "Date Range:", min="2017-07-01"),
+                  sliderInput("ylimpm", "Select Maximum PM2.5 to plot",min=0,max=200,step=10, value=80)
+                  # selectInput("colors", "Color Scheme",
+                  #             rownames(subset(brewer.pal.info, category %in% c("seq", "div"))),
+                  # checkboxInput("legend", "Show legend", TRUE)
+                  
                  
                 ),
             
@@ -95,11 +101,11 @@ tabPanel(strong("GPS Track"),
              fluidPage(
                titlePanel("Map of Activities"),
               
-                 mainPanel(
+                
                    
-                   leafletOutput("map", height = 400)
+                   leafletOutput("map1")
                  
-               )
+               
              )
          )
 )
